@@ -5,9 +5,13 @@ import { loginWithGoogle, loginWithApple } from "../services/authService";
 import { useAuth } from "../context/AuthContext";
 import React from "react";
 
+
 export default function LandingPage() {
   const navigate = useNavigate();
   const { setAuth, setLoading } = useAuth();
+
+  // Current year will update automatically every year
+  const currentYear = new Date().getFullYear();
 
   const handleGoogle = async () => {
     // TODO: implement OAuth flow (popup / redirect) and then exchange code at backend
@@ -150,7 +154,8 @@ export default function LandingPage() {
             Settings
           </a>
         </div>
-        <div className="x-copyright">© 2025 Twitter Plus.</div>
+        {/* Fixed - automatic year */}
+        <div className="x-copyright">© {currentYear} Twitter Plus.</div>
       </footer>
     </div>
   );
